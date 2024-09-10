@@ -16,7 +16,7 @@
   padding: 0 15px;
   min-height: 100vh;
   justify-content: center;
-  background: #f0f2f5;
+  background: transparent;
 }
 
 .referral-page {
@@ -24,7 +24,7 @@
   justify-content: center;
   max-width: 400px;
   width: 100%;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   padding: 50px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
@@ -45,26 +45,70 @@
 .form-group label {
   font-size: 1rem;
   margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.form-group label input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(0.8);
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.form-group input {
+  height: 55px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 0 14px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1877f2;
 }
 
 .form-group button {
   border: none;
   outline: none;
   cursor: pointer;
-  background: #1877f2;
+  background: #1877f2; /* Change the background color to Facebook's blue */
   padding: 10px 0;
   border-radius: 6px;
   color: #fff;
   font-size: 1rem;
   font-weight: 600;
-  transition: 2s ease;
+  transition: 0.2s ease;
 }
 
 .form-group button:hover {
-  background: #0d65d9;
+  background: #0069c0; /* Slightly darker blue on hover */
 }
 
-.confirm-text {
-  color: red;
-  font-style: italic;
+.form-group .cancelbtn {
+  background-color: #5F9EA0;
+  padding: 10px 0;
+  font-size: 1rem;
+}
+
+.form-group .cancelbtn:hover {
+  background-color: #5F9EA0;
+}
+
+.form-group .psw {
+  color: #1877f2;
+  font-size: 0.875rem;
+}
+
+.form-group .psw:hover {
+  text-decoration: underline;
+}
+
+.facebook-page {
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
 }
